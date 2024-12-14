@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "NotebookMviApp"
 include(":app")
+include(":core:database")

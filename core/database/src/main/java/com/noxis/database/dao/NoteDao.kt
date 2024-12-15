@@ -22,9 +22,9 @@ interface NoteDao {
     suspend fun deleteNote(note: Note)
 
     @Query("SELECT * FROM notes")
-    fun fetchAllNotes(): Flow<List<Note>>
+    fun fetchAllNotes():List<Note>
 
     @Query("SELECT * FROM notes WHERE id =:noteId")
-    fun getNote(noteId: Long): Flow<Note>
+    fun getNote(noteId: Long): Note
 
 }

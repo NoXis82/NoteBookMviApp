@@ -1,4 +1,4 @@
-package com.noxis.notes.domain
+package com.noxis.notes.domain.model
 
 import java.time.OffsetDateTime
 

@@ -1,7 +1,7 @@
 package com.noxis.notes.presentation.state
 
 import androidx.annotation.StringRes
-import com.noxis.notes.domain.NoteUi
+import com.noxis.notes.domain.model.NoteUi
 
 
 data class NoteUiViewState(

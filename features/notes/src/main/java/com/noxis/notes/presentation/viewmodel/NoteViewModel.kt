@@ -12,6 +12,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Provider
@@ -71,14 +72,17 @@ class NoteViewModel @Inject constructor(
      * state management.
      */
     private fun loadNotes() {
-        _notesViewState.value = _notesViewState.value.copy(isLoading = true)
         viewModelScope.launch(IO) {
-            repository.get().getNotes().collect { notes ->
-                _notesViewState.value = _notesViewState.value.copy(
-                    isLoading = false,
-                    notes = notes
-                )
-            }
+            repository.get().getNotes()
+                .onStart {
+                    _notesViewState.value = _notesViewState.value.copy(isLoading = true)
+                }
+                .collect { notes ->
+                    _notesViewState.value = _notesViewState.value.copy(
+                        isLoading = false,
+                        notes = notes
+                    )
+                }
         }
     }
 

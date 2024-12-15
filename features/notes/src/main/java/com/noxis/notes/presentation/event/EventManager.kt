@@ -51,5 +51,8 @@ object EventManager {
          * @param noteId The ID of the note to display in detail.
          */
         data class NavigateToDetail(val noteId: Long) : AppEvent()
+
+        data object ExitScreen: AppEvent()
+        data object ShowDiscardDialog: AppEvent()
     }
 }

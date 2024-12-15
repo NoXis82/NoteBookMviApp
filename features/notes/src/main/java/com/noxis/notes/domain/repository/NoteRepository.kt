@@ -1,6 +1,5 @@
 package com.noxis.notes.domain.repository
 
-import com.noxis.database.entity.Note
 import com.noxis.notes.domain.model.NoteUi
 import kotlinx.coroutines.flow.Flow
 

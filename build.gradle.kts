@@ -7,8 +7,8 @@ plugins {
     alias(libs.plugins.hilt) apply false
     alias(libs.plugins.android.library) apply false
 }
-allprojects {
-    tasks.withType(JavaCompile::class) {
-        options.isDeprecation = true
-    }
-}
+//allprojects {
+//    tasks.withType(JavaCompile::class) {
+//        options.isDeprecation = true
+//    }
+//}

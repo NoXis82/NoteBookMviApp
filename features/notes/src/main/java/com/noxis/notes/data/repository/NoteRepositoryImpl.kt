@@ -28,15 +28,16 @@ class NoteRepositoryImpl @Inject constructor(
 
     override fun getNotes(): Flow<List<NoteUi>> {
         return flow {
-            noteDao.fetchAllNotes().map {
+            emit(noteDao.fetchAllNotes().map {
                 it.mapToNoteUi()
             }
+            )
         }
     }
 
     override fun getNote(noteId: Long): Flow<NoteUi> {
         return flow {
-            noteDao.getNote(noteId).mapToNoteUi()
+           emit(noteDao.getNote(noteId).mapToNoteUi())
         }
     }
 }

@@ -80,6 +80,8 @@ dependencies {
     // lifecycle compose
     implementation(libs.androidx.lifecycle.runtime.compose)
 
+    implementation(project(":features:notes"))
+
     // Coroutine unit test dependency
     testImplementation(libs.coroutine.test)
 

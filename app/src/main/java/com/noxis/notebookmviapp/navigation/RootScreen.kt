@@ -29,6 +29,7 @@ import com.noxis.notebookmviapp.navigation.Routes.ROUTE_DETAIL_ARG_NAME
 import com.noxis.notebookmviapp.navigation.Routes.ROUTE_DETAIL_PATH
 import com.noxis.notebookmviapp.navigation.Routes.ROUTE_HOME
 import com.noxis.notes.presentation.components.MainTopAppBar
+import com.noxis.notes.presentation.screens.NoteDetailScreen
 import com.noxis.notes.presentation.screens.NotesScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -85,7 +86,7 @@ fun RootScreen(
                     navArgument(ROUTE_DETAIL_ARG_NAME) { nullable = true },
                 )
             ) {
-//                NoteDetailScreen()
+                NoteDetailScreen()
             }
         }
     }

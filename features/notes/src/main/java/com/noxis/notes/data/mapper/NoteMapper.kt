@@ -1,13 +1,14 @@
 package com.noxis.notes.data.mapper
 
 import com.noxis.database.entity.Note
+import com.noxis.database.util.AnnotatedStringConverter
 import com.noxis.notes.domain.model.NoteUi
 
 fun Note.mapToNoteUi(): NoteUi {
     return NoteUi(
         id = this.id,
         title = this.title,
-        description = this.description,
+        description = AnnotatedStringConverter.fromAnnotatedString(this.description),
         encrypt = this.encrypt,
         password = this.password,
         createdAt = this.createdAt,
@@ -19,7 +20,7 @@ fun NoteUi.mapToNoteDao(): Note {
     return Note(
         id = this.id,
         title = this.title,
-        description = this.description,
+        description = AnnotatedStringConverter.toAnnotatedString(this.description),
         encrypt = this.encrypt,
         password = this.password,
         createdAt = this.createdAt,

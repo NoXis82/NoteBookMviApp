@@ -38,6 +38,10 @@ fun NotesScreen() {
         lifecycleOwner = LocalLifecycleOwner.current
     )
 
+    LaunchedEffect(true) {
+        viewmodel.handleIntent(NoteIntent.LoadNotes)
+    }
+
     NotesScreen(stateUi = stateUi) { intent ->
         viewmodel.handleIntent(intent)
     }

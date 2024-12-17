@@ -15,6 +15,18 @@ import androidx.navigation.NavBackStackEntry
 import androidx.navigation.compose.LocalOwnersProvider
 
 @Composable
+internal fun ProvideAppBarAction(actions: @Composable RowScope.() -> Unit) {
+    if (LocalViewModelStoreOwner.current == null ||
+        LocalViewModelStoreOwner.current !is NavBackStackEntry
+    )
+        return
+    val actionViewModel = viewModel(initializer = { TopAppBarViewModel() })
+    SideEffect {
+        actionViewModel.actionState = actions
+    }
+}
+
+@Composable
 internal fun ProvideAppBarTitle(title: @Composable () -> Unit) {
     if (LocalViewModelStoreOwner.current == null ||
         LocalViewModelStoreOwner.current !is NavBackStackEntry

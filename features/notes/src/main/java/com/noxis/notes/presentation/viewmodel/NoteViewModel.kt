@@ -35,9 +35,9 @@ class NoteViewModel @Inject constructor(
      * UI is always populated with up-to-date information when the notes
      * screen appears.
      */
-    init {
-        handleIntent(NoteIntent.LoadNotes)
-    }
+//    init {
+//        handleIntent(NoteIntent.LoadNotes)
+//    }
 
     /**
      * Handles user intents by mapping them to appropriate methods.

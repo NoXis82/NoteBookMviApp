@@ -1,5 +1,6 @@
 package com.noxis.notes.presentation.viewmodel
 
+import android.util.Log
 import androidx.compose.ui.text.AnnotatedString
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
@@ -63,9 +64,9 @@ class NoteDetailViewModel @Inject constructor(
     }
 
     private fun updateNoteTitle(title: String) {
-        val note = _noteDetailViewState.value.note.copy(title = title)
+        Log.d("TAG", ">>> updateNoteTitle: $title")
         _noteDetailViewState.value = _noteDetailViewState.value.copy(
-            note = note,
+            note = _noteDetailViewState.value.note.copy(title = title),
             showSaveIcon = true
         )
     }
@@ -91,7 +92,7 @@ class NoteDetailViewModel @Inject constructor(
         )
     }
 
-    fun addNote() {
+    private fun addNote() {
         viewModelScope.launch(IO) {
             val note = _noteDetailViewState.value.note.copy(
                 createdAt = OffsetDateTime.now(),
@@ -103,7 +104,7 @@ class NoteDetailViewModel @Inject constructor(
         EventManager.triggerEventWithDelay(EventManager.AppEvent.ExitScreen)
     }
 
-    fun saveNote() {
+    private fun saveNote() {
         viewModelScope.launch(IO) {
             val updatedNote = _noteDetailViewState.value.note.copy(
                 modifiedAt = OffsetDateTime.now()

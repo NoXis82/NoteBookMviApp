@@ -1,5 +1,6 @@
 package com.noxis.notes.presentation.viewmodel
 
+import androidx.compose.ui.text.AnnotatedString
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -69,7 +70,7 @@ class NoteDetailViewModel @Inject constructor(
         )
     }
 
-    private fun updateNoteDesc(desc: String) {
+    private fun updateNoteDesc(desc: AnnotatedString) {
         _noteDetailViewState.value = _noteDetailViewState.value.copy(
             note = _noteDetailViewState.value.note.copy(description = desc),
             showSaveIcon = true

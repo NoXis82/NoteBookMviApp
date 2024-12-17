@@ -26,6 +26,7 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.blur
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -159,7 +160,7 @@ private fun NoteItemPreview() {
     NoteItem(
         note = NoteUi(
             title = "Test",
-            description = "Description test",
+            description = AnnotatedString("Description test"),
             modifiedAt = OffsetDateTime.now()
         ),
         onNoteItemClicked = {},

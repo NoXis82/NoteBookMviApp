@@ -6,7 +6,7 @@ import com.google.gson.Gson
 import com.noxis.database.editor.FormattingAction
 import com.noxis.database.editor.*
 
-object AnnotatedStringConverter {
+class AnnotatedStringConverter {
 
     @TypeConverter
     fun fromAnnotatedString(value: AnnotatedString): String {

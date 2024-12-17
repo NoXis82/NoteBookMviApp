@@ -8,7 +8,7 @@ fun Note.mapToNoteUi(): NoteUi {
     return NoteUi(
         id = this.id,
         title = this.title,
-        description = AnnotatedStringConverter.fromAnnotatedString(this.description),
+        description = this.description,
         encrypt = this.encrypt,
         password = this.password,
         createdAt = this.createdAt,
@@ -20,7 +20,7 @@ fun NoteUi.mapToNoteDao(): Note {
     return Note(
         id = this.id,
         title = this.title,
-        description = AnnotatedStringConverter.toAnnotatedString(this.description),
+        description = this.description,
         encrypt = this.encrypt,
         password = this.password,
         createdAt = this.createdAt,

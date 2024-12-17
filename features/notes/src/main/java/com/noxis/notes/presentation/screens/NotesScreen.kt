@@ -14,11 +14,13 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.noxis.database.util.AnnotatedStringConverter
 import com.noxis.notes.R
 import com.noxis.notes.domain.model.NoteUi
 import com.noxis.notes.presentation.components.EmptyScreen
@@ -94,18 +96,18 @@ private fun NotesScreenPreview() {
         stateUi = NoteUiViewState(
             notes = listOf(
                 NoteUi(
-                    title = "Test",
-                    description = "Description test",
+                    title = "Test1",
+                    description = AnnotatedString("Description test1"),
                     modifiedAt = OffsetDateTime.now()
                 ),
                 NoteUi(
-                    title = "Test",
-                    description = "Description test",
+                    title = "Test2",
+                    description = AnnotatedString("Description test2"),
                     modifiedAt = OffsetDateTime.now()
                 ),
                 NoteUi(
-                    title = "Test",
-                    description = "Description test",
+                    title = "Test3",
+                    description = AnnotatedString("Description test3"),
                     modifiedAt = OffsetDateTime.now()
                 )
             )

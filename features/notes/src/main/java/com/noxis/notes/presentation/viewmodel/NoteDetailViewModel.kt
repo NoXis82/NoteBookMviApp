@@ -64,11 +64,11 @@ class NoteDetailViewModel @Inject constructor(
     }
 
     private fun updateNoteTitle(title: String) {
-        Log.d("TAG", ">>> updateNoteTitle: $title")
-        _noteDetailViewState.value = _noteDetailViewState.value.copy(
-            note = _noteDetailViewState.value.note.copy(title = title),
-            showSaveIcon = true
-        )
+            val note = _noteDetailViewState.value.note.copy(title = title)
+            _noteDetailViewState.value = _noteDetailViewState.value.copy(
+                note = note,
+                showSaveIcon = true
+            )
     }
 
     private fun updateNoteDesc(desc: AnnotatedString) {

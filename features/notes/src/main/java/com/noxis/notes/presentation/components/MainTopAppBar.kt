@@ -33,7 +33,7 @@ fun MainTopAppBar(
         producer = {
             navController.currentBackStackEntryFlow
                 .filterNot { it.destination is FloatingWindow }
-                .collect{ value = it }
+                .collect { value = it }
         }
     )
 
